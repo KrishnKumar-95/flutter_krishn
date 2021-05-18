@@ -10,13 +10,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(    //it is component of material contains many things.
       appBar: AppBar(
         title: Text("flutter_krishn"),
-      ),   // this is top blue bar in the app
+      ), // this is top blue bar in the app
+      drawer: Drawer(), // this is placed on AppBar at top left
       body: Center(
         child: Container(
           child: Text("Welcome to My $A st App. I will make $B also and my name is $name"),    // string interpolation
         ),
       ),
-      drawer: Drawer(),
     );
   }
 }
