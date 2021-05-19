@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'pages/home_page.dart';
 import 'pages/login_page.dart';
 
@@ -15,7 +15,9 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       themeMode: ThemeMode.dark, // system >> for system theme light/dark
-      theme: ThemeData(primarySwatch: Colors.red),
+      theme: ThemeData(
+          primarySwatch: Colors.red,
+          fontFamily: GoogleFonts.lato().fontFamily ),
       darkTheme: ThemeData(           // light >> for light theme
         brightness: Brightness.light,   // dark >> for dark theme
         primarySwatch: Colors.green
