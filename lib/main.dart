@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,   // dark >> for dark theme
         primarySwatch: Colors.green
       ),
-      initialRoute: "/home",   // used to define default page
+
+      // this page will show on opening the app
+      initialRoute: "/",   // we can also say default page
       routes: {
         "/" : (context) => LoginPage(),
         MyRoutes.homeRoute : (context) => HomePage(),
