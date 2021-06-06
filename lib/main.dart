@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // this page will show on opening the app
       initialRoute: MyRoutes.homeRoute,   // we can also say default page
-      routes: {"/" : (context) => LoginPage(),
+      routes: {
+        "/" : (context) => LoginPage(),
         MyRoutes.homeRoute : (context) => HomePage(),
         MyRoutes.loginRoute : (context) => LoginPage()
       },

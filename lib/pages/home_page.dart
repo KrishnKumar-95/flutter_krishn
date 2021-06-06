@@ -5,7 +5,6 @@ class HomePage extends StatelessWidget {
   final int A = 1;  // for integer value
   final double B = 2;  // for float values
   final String name = "Krishn_Kumar";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(    //it is component of material contains many things.
