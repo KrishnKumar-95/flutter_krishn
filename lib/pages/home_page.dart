@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_krishn/models/catalog.dart';
 import 'package:flutter_krishn/widgets/drawer.dart';
+import 'package:flutter_krishn/widgets/item_widget.dart';
 
 class HomePage extends StatelessWidget {
   final int A = 1;  // for integer value
@@ -15,11 +17,15 @@ class HomePage extends StatelessWidget {
         title: Text("flutter_krishn",style: TextStyle(color:Colors.black)),
       ), // this is top blue bar in the app
       drawer: MyDrawer(), // this is placed on AppBar at top left
-      body: Center(
-        child: Container(
-          child: Text("Welcome to My $A st App. I will make $B also and my name is $name"),    // string interpolation
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: CatalogModel.items.length,
+          itemBuilder: (context, index){
+            return ItemWidget(item: CatalogModel.items[index],);
+          }
         ),
-      ),
+      )
     );
   }
 }
