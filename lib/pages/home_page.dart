@@ -1,12 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 import 'package:flutter_krishn/models/catalog.dart';
 import 'package:flutter_krishn/widgets/drawer.dart';
 import 'package:flutter_krishn/widgets/item_widget.dart';
 
-class HomePage extends StatelessWidget {
-  final int A = 1;  // for integer value
-  final double B = 2;  // for float values
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final int A = 1;
+  final double B = 2;
   final String name = "Krishn_Kumar";
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async{
+    final catalogJson = await rootBundle.loadString("assets/files/data.json");
+    final decodedData = jsonDecode(catalogJson);
+    var productsData = decodedData['products'];
+    CatalogModel.items = List.from(productsData)
+        .map<Item>((item) => Item.fromMap(item))
+        .toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     final dummyList = List.generate(50, (index) => CatalogModel.items[0]);

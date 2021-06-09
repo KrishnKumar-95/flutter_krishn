@@ -1,6 +1,6 @@
 class CatalogModel{
   // we make it static so we can use it directly using CatalogModel
-  static final items = [
+  static List<Item> items = [
     Item(
       id: 1,
       name: "Iphone 12 pro",
@@ -23,4 +23,27 @@ class Item{
   final String image;
 
   Item({this.id, this.name, this.desc, this.price, this.color, this.image});
+  // if our keys are string then <<string>> keyword will be used
+  // otherwise keyword will be <<dynamic>>
+  // initialize final variables on the basis of constructor then factory constructor will be used
+  factory Item.fromMap(Map<String,dynamic> map) {
+    return Item(
+      id: map["id"],
+      name: map["name"],
+      desc: map["desc"],
+      price: map["price"],
+      color: map["color"],
+      image: map["image"],
+    );
+  }
+
+  toMap() => {
+    "id": id,
+    "name": name,
+    "desc": desc,
+    "price": price,
+    "color": color,
+    "image": image,
+  };
+
 }
