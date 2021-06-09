@@ -9,11 +9,27 @@ class ItemWidget extends StatelessWidget {
       assert(item != null), super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.network(item.image),
-      title: Text(item.name),
-      subtitle: Text(item.desc),
-      trailing: Text("\$${item.price}"),
+    // Card is elevated widget on the Screen
+    // we can also remove its elevation
+    // also looks better in no elevation
+    return Card(
+      // elevation: 0.0,
+      child: ListTile(
+        onTap: () {
+          // i used string interpolation to show its name
+          print("${item.name} pressed");
+        },
+        leading: Image.network(item.image),
+        title: Text(item.name),
+        subtitle: Text(item.desc),
+        trailing: Text("\$${item.price}",
+        textScaleFactor: 1.2,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.green
+          ),
+        ),
+      ),
     );
   }
 }
