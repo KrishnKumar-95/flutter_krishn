@@ -21,36 +21,46 @@ class _HomePageState extends State<HomePage> {
     loadData();
   }
 
-  loadData() async{
-    final catalogJson = await rootBundle.loadString("assets/files/data.json");
+  loadData() async {
+    // this delays the loading of the data
+    await Future.delayed(Duration(seconds: 2));
+    final catalogJson =
+    await rootBundle.loadString("assets/files/catalog.json");
     final decodedData = jsonDecode(catalogJson);
-    var productsData = decodedData['products'];
+    var productsData = decodedData["products"];
     CatalogModel.items = List.from(productsData)
         .map<Item>((item) => Item.fromMap(item))
         .toList();
+
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
-    return Scaffold(    //it is component of material contains many things.
+    return Scaffold(
+      //it is component of material contains many things.
       appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   elevation: 0.0,
-      //   iconTheme: IconThemeData(color: Colors.black),
-        title: Text("flutter_krishn",style: TextStyle(color:Colors.black)),
+        //   backgroundColor: Colors.white,
+        //   elevation: 0.0,
+        //   iconTheme: IconThemeData(color: Colors.black),
+        title: Text("flutter_catalog", style: TextStyle(color: Colors.black)),
       ), // this is top blue bar in the app
-      drawer: MyDrawer(), // this is placed on AppBar at top left
+      // this is placed on AppBar at top left
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemCount: dummyList.length,
-          itemBuilder: (context, index){
-            return ItemWidget(item: dummyList[index],
-            );
-          }
+        // if we want to apply 2 logic then we use && <<AND operator>>
+        // if we want only 1 logic run then we use || <<OR operator>>
+        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+            ? ListView.builder(
+          itemCount: CatalogModel.items.length,
+          itemBuilder: (context, index) => ItemWidget(
+            item: CatalogModel.items[index],
+          ),
+        )
+            : Center(child: CircularProgressIndicator(),
         ),
-      )
+      ),
+      drawer: MyDrawer(),
     );
   }
 }
