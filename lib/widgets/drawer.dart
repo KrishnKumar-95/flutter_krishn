@@ -17,7 +17,7 @@ class MyDrawer extends StatelessWidget {
         child: ListView(
           children: [
             DrawerHeader(
-              padding: EdgeInsets.zero,
+                padding: EdgeInsets.zero,
                 child: UserAccountsDrawerHeader(
                   margin: EdgeInsets.zero,
                   // here we can add our name and Email in the Drawer
@@ -27,36 +27,38 @@ class MyDrawer extends StatelessWidget {
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: NetworkImage(imageUrl),
                   ),
-            )
-            ),
+                )),
             ListTile(
-              leading: Icon(CupertinoIcons.home,
-                color: Colors.white,),
-              title: Text('Home',
+              leading: Icon(
+                CupertinoIcons.home,
+                color: Colors.white,
+              ),
+              title: Text(
+                'Home',
                 textScaleFactor: 1.2,
-                style: TextStyle(
-                    color: Colors.white
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             ListTile(
-              leading: Icon(CupertinoIcons.profile_circled,
-                color: Colors.white,),
-              title: Text('Profile',
+              leading: Icon(
+                CupertinoIcons.profile_circled,
+                color: Colors.white,
+              ),
+              title: Text(
+                'Profile',
                 textScaleFactor: 1.2,
-                style: TextStyle(
-                    color: Colors.white
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             ListTile(
-              leading: Icon(CupertinoIcons.mail,
-                color: Colors.white,),
-              title: Text('Mail',
+              leading: Icon(
+                CupertinoIcons.mail,
+                color: Colors.white,
+              ),
+              title: Text(
+                'Mail',
                 textScaleFactor: 1.2,
-                style: TextStyle(
-                    color: Colors.white
-                ),
+                style: TextStyle(color: Colors.white),
               ),
             )
           ],

@@ -6,7 +6,7 @@ class ItemWidget extends StatelessWidget {
   // we used @required because it is required for this
   const ItemWidget({Key key, @required this.item})
       :
-  // we used assert here because it shouldn't be null
+        // we used assert here because it shouldn't be null
         assert(item != null),
         super(key: key);
   @override

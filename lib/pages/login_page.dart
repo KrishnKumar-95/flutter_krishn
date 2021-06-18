@@ -132,17 +132,17 @@ class _LoginPageState extends State<LoginPage> {
                       alignment: Alignment.center,
                       child: changeButton
                           ? Icon(
-                        Icons.done_all,
-                        color: Colors.white,
-                      )
+                              Icons.done_all,
+                              color: Colors.white,
+                            )
                           : Text(
-                        "LogIn",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
+                              "LogIn",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
 
                       // button decoration
                       decoration: BoxDecoration(
@@ -150,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                         // shape: changeButton ? BoxShape.circle
                         //     : BoxShape.rectangle,
                         borderRadius:
-                        BorderRadius.circular(changeButton ? 50 : 8),
+                            BorderRadius.circular(changeButton ? 50 : 8),
                       ),
                     ),
                   ),

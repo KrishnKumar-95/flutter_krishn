@@ -87,10 +87,10 @@ class Item {
   @override
   int get hashCode {
     return id.hashCode ^
-    name.hashCode ^
-    desc.hashCode ^
-    price.hashCode ^
-    color.hashCode ^
-    image.hashCode;
+        name.hashCode ^
+        desc.hashCode ^
+        price.hashCode ^
+        color.hashCode ^
+        image.hashCode;
   }
 }
