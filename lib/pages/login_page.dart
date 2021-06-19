@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // here is utils folder is imported
 import 'package:flutter_krishn/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 // stateful widget is used when we want realtime changes in the page
 // without changing the page
@@ -34,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        color: Colors.white,
+        color: context.canvasColor,
         // using this there will be scrolling option for short devices
         child: SingleChildScrollView(
           child: Form(
@@ -112,11 +113,12 @@ class _LoginPageState extends State<LoginPage> {
 
                 // this turn a container into button
                 Material(
-                  color: Colors.green,
+                  color: context.theme.buttonColor,
                   borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
                   child: InkWell(
                     // this is a property that performs an operation on a container
                     onTap: () => moveToHome(context),
+
 
                     // Animated container is used to create container
                     // which will perform animated stuff
@@ -146,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       // button decoration
                       decoration: BoxDecoration(
-                        color: Colors.indigo,
+                        color: context.theme.buttonColor,
                         // shape: changeButton ? BoxShape.circle
                         //     : BoxShape.rectangle,
                         borderRadius:
